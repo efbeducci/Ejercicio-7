@@ -1,0 +1,52 @@
+Program Ejercicio7;
+Uses crt,Dos;
+var
+tiempo, tiempo1max,tiempo2max, tiempo1min, tiempo2min : real;
+i : integer;
+piloto, piloto1max, piloto2max, piloto1min, piloto2min : string;
+x: char;
+begin
+tiempo1max := -32000;
+tiempo2max :=-32000;
+tiempo1min := 32000;
+tiempo2min := 32000;
+ for i := 1 to 4 do
+ begin
+   writeln('Ingrese el nombre de piloto ');
+   readln(piloto);
+   writeln('Ingrese el tiempo de carrera ');
+   readln(tiempo);
+    if (tiempo > tiempo1max) then
+     begin
+      tiempo2max:=tiempo1max;
+      tiempo1max:= tiempo;
+      piloto1max:= piloto;
+     end
+    else
+     if (tiempo > tiempo2max) then
+      begin
+      tiempo2max := tiempo;
+      piloto2max:= piloto;
+      end;
+
+    if (tiempo < tiempo1min) then
+     begin
+      tiempo2min := tiempo1min;
+      tiempo1min:= tiempo;
+      piloto1min:= piloto;
+     end
+    else
+    if  (tiempo < tiempo2min) then
+     begin
+     tiempo2min := tiempo;
+     piloto2min := piloto;
+     end;
+ end;
+writeln ('Los dos pilotos mas veloces son ' , piloto1min, ' y ', piloto2min);
+writeln ('Los dos pilotos menos veloces son ', piloto1max, ' y ', piloto2max);
+
+
+
+
+x:= readkey;
+end.
